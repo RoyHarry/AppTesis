@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-jun-2015 9:45:27 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.DetalleLeccion" table="detalle_leccion" catalog="tesis" optimistic-lock="version">
+        <id name="iddetalleLeccion" type="java.lang.Integer">
+            <column name="iddetalle_leccion" />
+            <generator class="identity" />
+        </id>
+        <property name="numeroPregunta" type="java.lang.Integer">
+            <column name="numero_pregunta" />
+        </property>
+        <property name="pregunta" type="string">
+            <column name="pregunta" length="45" />
+        </property>
+        <property name="respuesta" type="string">
+            <column name="respuesta" length="45" />
+        </property>
+        <property name="mensaje" type="string">
+            <column name="mensaje" length="45" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="45" />
+        </property>
+        <property name="puntuacion" type="java.lang.Integer">
+            <column name="puntuacion" />
+        </property>
+        <property name="promedio" type="java.lang.Integer">
+            <column name="promedio" />
+        </property>
+        <set name="leccions" table="leccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="detalle_leccion_iddetalle_leccion" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Leccion" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -6,40 +6,63 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Login</title>
-        <link href="#{appBean.baseUrl}resources/css/login.css" type="text/css" rel="stylesheet"/>
+        <link href="./recursos/css/login.css" type="text/css" rel="stylesheet"/>
     </h:head>
+
     <h:body>
         <div class="conteiner">
-            
-            <h:form id="formLogin">
-                <p:growl id="growl" sticky="true" showDetail="true" life="3000" />                
-                <p:panel header="Ingresar Usuario y Contraseña">
-                    <h:panelGrid columns="2" cellpadding="5">
-                        <h:outputLabel for="username" value="Username:" />
-                        <p:inputText id="username" value="#{loginBean.username}" required="true" label="username" />
+            <p:growl id="growl" showDetail="true" life="3000" sticky="true"/>
+            <h:form id="formLogin">    
 
-                        <h:outputLabel for="password" value="Password:" />
-                        <p:password id="password" value="#{loginBean.password}" required="true" label="password" />
+                <p:panel header="Ingresar usuario y clave">
+                    <center>
+                        <p:graphicImage style="width: 100%" value="/recursos/img/fisi.png" /><br />
+                        <!--<h1 id="idioma">ENGLISH</h1>-->
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <h:outputLabel for="username" value="Usuario: "/>
+                            <p:inputText value="" placeholder="Usuario"
+                                         id="username" required="true" label="username"/>
+
+                            <h:outputLabel for="password" value="Clave: "/>
+                            <p:password value=""
+                                        id="password" required="true" label="password" placeholder="Clave"/>
+
+                        </h:panelGrid>
 
                         <f:facet name="footer">
-                            <p:commandButton value="Login" update="growl" actionListener="#{loginBean.login(event)}" icon="icon-login"
-                                             oncomplete="handleLoginRequest(xhr, status, args)"  />
-                        </f:facet>  
-                    </h:panelGrid>
-                </p:panel>   
-            </h:form>
+                            <p:commandButton id="loginButton" value="Ingresar" update=":growl"
+                                             action="}" icon="icon-login"
+                                             oncomplete="handleLoginRequest(xhr, status, args)"
+                                             style="left: 50%;"/>
+                        </f:facet>
+                    </center>
+                </p:panel>
+            </h:form>   
         </div>
+
+        <p:dialog modal="true" widgetVar="statusDialog" header="Iniciando Sesion....."   
+                  draggable="false" closable="false">  
+
+            <p:graphicImage value="resources/img/loading2.gif" />  
+
+        </p:dialog>  
+
+        <p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"
+                      style="width:64px;height:64px;position:fixed;right:300px;bottom:150px" >  
+
+        </p:ajaxStatus>
+
         <script type="text/javascript">
             function handleLoginRequest(xhr, status, args) {
                 if (args.validationFailed || !args.loggedIn) {
-                    PF('dlg').jq.effect("shake", {times: 5}, 100);
-                }
-                else {
-                    PF('dlg').hide();
-                    $('#loginLink').fadeOut();
+                    jQuery('#formLogin').effect("bounce", {times: 3}, 100);
+                } else {
+                    location.href = args.ruta;
                 }
             }
         </script>
+
     </h:body>
 </html>
 

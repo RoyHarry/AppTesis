@@ -7,15 +7,15 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tesis?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="model/Ciclo.hbm.xml"/>
-    <mapping resource="model/Nivel.hbm.xml"/>
-    <mapping resource="model/Leccion.hbm.xml"/>
-    <mapping resource="model/Usuario.hbm.xml"/>
-    <mapping resource="model/DetalleLeccion.hbm.xml"/>
-    <mapping resource="model/Curso.hbm.xml"/>
-    <mapping resource="model/Persona.hbm.xml"/>
-    <mapping resource="model/Rol.hbm.xml"/>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="modelo/Persona.hbm.xml"/>
+    <mapping resource="modelo/Nivel.hbm.xml"/>
+    <mapping resource="modelo/DetalleLeccion.hbm.xml"/>
+    <mapping resource="modelo/Ciclo.hbm.xml"/>
+    <mapping resource="modelo/Curso.hbm.xml"/>
+    <mapping resource="modelo/Leccion.hbm.xml"/>
+    <mapping resource="modelo/Usuario.hbm.xml"/>
+    <mapping resource="modelo/Rol.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,31 @@
+root { 
+    display: block;
+}
+
+body{
+    background-color: rgb(35, 79, 107);   
+}
+.conteiner{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13%;
+    font-size: 85%;
+}
+.ui -state-default .icon-login{
+    background-image: url(../img/login.png);  
+}
+
+@font-face{
+    font-family: "mifuente";
+    src: url("../fonts/fuente.ttf");
+    
+}
+
+.ui -state-default .idioma{
+    font-family: "mifuente";
+}
+
+.ui -state-default #fisi{
+    width: 30px;    
+}

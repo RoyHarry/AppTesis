@@ -13,4 +13,7 @@ public class MyUtil {
     public static String baseurl(){
         return "http://localhost:8084/AppTesis/";
     }
+    public static String basepathlogin(){
+        return "/AppTesis/faces/";
+    }
 }
